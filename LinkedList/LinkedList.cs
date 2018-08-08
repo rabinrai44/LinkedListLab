@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace LinkedList
 {
     //Non-Generic LinkedList
-    class LinkedList
+   public class LinkedList
     {
         public LinkedList()
         {
@@ -41,6 +41,22 @@ namespace LinkedList
             --Count;
         }
 
+        //Method that remove the Node if user give any specific index value
+        public bool RemoveAt(int index)
+        {
+            List<LinkedList> list = new List<LinkedList>();
+
+            if (list.Count < index && list.Count > index)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+        }
+
         public void PrintAllNodes()
         {
             Console.Write("Head -> ");
@@ -48,6 +64,32 @@ namespace LinkedList
             while (curr.Next != null)
             {
                 curr = curr.Next;
+                Console.Write(curr.Value); //If using a reference type (any class/interface), you will need to override ToString for this to work.
+                Console.Write(" -> ");
+            }
+            Console.Write("NULL");
+            Console.WriteLine();
+        }
+
+        //ReverseAllNode
+        public void PrintReverse(LinkedList linkedList)
+        {
+            LinkedListNode start = linkedList.Head;
+            LinkedListNode temp = null;
+            Console.Write("Head -> ");
+            Node curr = Head;
+            while (start != null)
+            {
+                temp = start.Next;
+                start.Next = start.Previous;
+                start.Previous = temp;
+
+                if (start.Previous == null)
+                {
+                    linkedList.Head = start;
+                }
+
+                start = start.Previous;
                 Console.Write(curr.Value); //If using a reference type (any class/interface), you will need to override ToString for this to work.
                 Console.Write(" -> ");
             }
@@ -91,6 +133,38 @@ namespace LinkedList
             Head.Next = Head.Next.Next;
             --Count;
         }
+
+        //Method that remove the Node if user give any specific index value
+        public bool RemoveAt(int index)
+        {
+            List<LinkedList> list = new List<LinkedList>();
+            
+            if (list.Count < index && list.Count > index)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+             
+        }
+
+        //Method that insert the Node if user give a specific index value
+        //public bool InsertAt(int index, object o, Node start)
+        //{
+        //   Node current = start;
+        //    for(int i = 0; i < index; i++)
+        //    {
+        //        current = current.Next;
+        //    }
+
+        //    Node next = current.Next;
+
+        //    current.Next = new Node() { }
+
+        //}
+
 
         public void PrintAllNodes()
         {

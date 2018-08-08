@@ -102,6 +102,42 @@ namespace LinkedList
                 }
             }
 
+            Console.WriteLine("Would you like to remove specific node?");
+            var input = char.ToLower(Console.ReadKey().KeyChar);
+            if (input == 'y')
+            {
+                try
+                {
+                    var linkedList = new LinkedList();
+
+                    Console.Write("Enter a number which you want to remove: ");
+                     int inputIndex = int.Parse(Console.ReadLine());
+                    if(!linkedList.RemoveAt(inputIndex))
+                    {
+                        throw new InvalidOperationException();
+                    }
+                    else
+                    {
+                        //find the current list
+                        
+
+                    }
+
+
+                }
+                catch (FormatException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    throw new IndexOutOfRangeException();
+                }
+
+               
+            }
+           
+
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
             Console.WriteLine();
